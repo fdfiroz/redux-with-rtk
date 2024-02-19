@@ -46,7 +46,7 @@ const TaskCard = ({ task }: { task: TaskProp }) => {
           </button>
           <button
             onClick={() =>
-              dispatch(updateStatus({ id: task.id, status: updatedStatus as 'pending' | 'running' | 'completed' }))
+              dispatch(updateStatus({ id: task.id, status: updatedStatus as 'pending' | 'running' | 'completed'| 'archive'}))
             }
             title="In progress"
           >
