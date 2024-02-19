@@ -6,8 +6,8 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  name: 'Mir Hussain',
-  email: 'mir@gmail.com',
+  name: 'Firoz',
+  email: 'firoz@gmail.com',
 };
 
 const userSlice = createSlice({
