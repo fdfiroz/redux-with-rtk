@@ -6,7 +6,7 @@ import Modal from '../ui/Modal';
 
 interface TaskFormData {
     id: number;
-    status: 'pending' | 'running' | 'completed'; // Adjusted status types
+    status: 'pending' | 'running' | 'completed' | 'archive'; // Adjusted status types
     title: string;
     description: string;
     date: string;
