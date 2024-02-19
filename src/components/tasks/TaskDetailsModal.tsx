@@ -8,7 +8,7 @@ interface Props {
   id: number;
 }
 
-const TaskDetailsModal: React.FC<Props> = ({ isOpen, setIsOpen, id }) => {
+const TaskDetailsModal = ({ isOpen, setIsOpen, id }:Props) => {
   const { tasks } = useSelector((state: RootState) => state.tasksSlice);
 
   const task = tasks.find((item) => item.id === id);
