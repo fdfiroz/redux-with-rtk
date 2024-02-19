@@ -16,18 +16,7 @@ interface TasksState {
 }
 
 const initialState: TasksState = {
-  tasks: [
-    {
-      id: 1,
-      status: 'pending',
-      title: 'Remove Button',
-      description:
-        'We need a remove button in our task card. Make the button red and use Heroicon for tashbin icon.',
-      date: '2023-08-28',
-      assignedTo: 'Mir Hussain',
-      priority: 'high',
-    },
-  ],
+  tasks: [],
   userSpecificTasks: [],
 };
 
@@ -35,7 +24,7 @@ const tasksSlice = createSlice({
   name: 'tasksSlice',
   initialState,
   reducers: {
-    addTask: (state, { payload }: PayloadAction<Task>) => {
+    addTask: (state, { payload }: PayloadAction<Omit<Task, 'id' | 'status'>>) => {
       if (state.tasks.length === 0) {
         state.tasks.push({ id: 1, status: 'pending', ...payload });
       } else {
@@ -46,11 +35,12 @@ const tasksSlice = createSlice({
           ...payload,
         });
       }
-    },
+    },    
+    
     removeTask: (state, { payload }: PayloadAction<number>) => {
       state.tasks = state.tasks.filter((item) => item.id !== payload);
     },
-    updateStatus: (state, { payload }: PayloadAction<{ id: number; status: 'pending' | 'running' | 'completed' }>) => {
+    updateStatus: (state, { payload }: PayloadAction<{ id: number; status: 'pending' | 'running' | 'completed'| 'archive' }>) => {
       const taskToUpdate = state.tasks.find((item) => item.id === payload.id);
       if (taskToUpdate) {
         taskToUpdate.status = payload.status;
