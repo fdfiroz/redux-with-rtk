@@ -6,7 +6,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  name: 'Firoz',
+  name: 'Firoz Ahammad',
   email: 'firoz@gmail.com',
 };
 
